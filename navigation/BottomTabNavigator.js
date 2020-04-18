@@ -4,6 +4,7 @@ import * as React from 'react';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
+import CartScreen from '../screens/CartScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -22,6 +23,14 @@ export default function BottomTabNavigator({ navigation, route }) {
         options={{
           title: 'Get Started',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Cart"
+        component={CartScreen}
+        options={{
+          title: 'Cart',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-cart" />,
         }}
       />
       <BottomTab.Screen
@@ -44,5 +53,7 @@ function getHeaderTitle(route) {
       return 'How to get started';
     case 'Links':
       return 'Links to learn more';
+    case 'Cart':
+      return 'Cart';
   }
 }
